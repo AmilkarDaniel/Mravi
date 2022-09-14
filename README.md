@@ -13,3 +13,15 @@ class MaxHeap:
             if init_cost != -1:
                 heap.push(v, init_cost)
         return heap
+    def _init_(self):
+        self.h = []
+
+    def push(self, v, cost):
+        heappush(self.h, (-cost))
+
+    def pop(self):
+        cost, v = heappop(self.h)
+        return -cost, v
+
+    def _bool_(self):
+        return bool(self.h)
