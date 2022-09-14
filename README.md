@@ -45,3 +45,20 @@ class Edge:
         self.vertices[child - 1].parent = parent - 1
         self.vertices[child - 1].percent = perc / 100.0
         self.vertices[child - 1].super = bool(sup)
+def root_cost(self, heap):
+        best = [-1] * len(self.vertices)
+        largest = 0
+        while heap:
+            cost, curr = heap.pop()
+            if self.vertices[curr].parent == -1:
+                largest = max(largest, cost)
+                continue
+
+            if self.vertices[curr].super:
+                cost = sqrt(cost) / self.vertices[curr].percent
+            else:
+                cost = cost / self.vertices[curr].percent
+            if best[self.vertices[curr].parent] <= cost:
+                best[self.vertices[curr].parent] = cost
+                heap.push(self.vertices[curr].parent, cost)
+        return largest
