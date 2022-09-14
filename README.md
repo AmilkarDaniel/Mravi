@@ -32,3 +32,16 @@ class Graph:
         for _ in range(len(g.vertices) - 1)
             g.add_parent(*map(int, input().split()))
         return g
+class Edge:
+        def _init_(self):
+            self.parent = -1
+            self.percent = 0.0
+            self.super = False
+
+    def _init_(self, v):
+        self.vertices = [Graph.Edge() for _ in range(v)]
+
+    def add_parent(self, parent, child, perc, sup):
+        self.vertices[child - 1].parent = parent - 1
+        self.vertices[child - 1].percent = perc / 100.0
+        self.vertices[child - 1].super = bool(sup)
