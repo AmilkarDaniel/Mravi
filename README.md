@@ -17,7 +17,7 @@ class MaxHeap:
         self.h = []
 
     def push(self, v, cost):
-        heappush(self.h, (-cost))
+        heappush(self.h, (-cost,v))
 
     def pop(self):
         cost, v = heappop(self.h)
@@ -25,3 +25,10 @@ class MaxHeap:
 
     def _bool_(self):
         return bool(self.h)
+class Graph:
+    @staticmethod
+    def construct_from_input():
+        g = Graph(int(input()))
+        for _ in range(len(g.vertices) - 1)
+            g.add_parent(*map(int, input().split()))
+        return g
