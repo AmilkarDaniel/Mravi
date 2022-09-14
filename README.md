@@ -62,3 +62,9 @@ def root_cost(self, heap):
                 best[self.vertices[curr].parent] = cost
                 heap.push(self.vertices[curr].parent, cost)
         return largest
+def main():
+    print('%.3f' % Graph.construct_from_input().root_cost(MaxHeap.construct_init_heap_from_input()))
+
+
+if _name_ == "_main_":
+    main()
